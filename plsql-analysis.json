@@ -1,0 +1,49 @@
+{
+  "packages_analyzed": 2,
+  "shared_resources": {
+    "tables": 1,
+    "connections": 0,
+    "parameters": 0
+  },
+  "data_dependencies": 0,
+  "execution_chains": 1,
+  "cross_package_edges_added": 0,
+  "contention_risks": {
+    "high_risk_connections": [],
+    "high_contention_tables": [],
+    "risk_summary": {
+      "total_shared_connections": 0,
+      "high_risk_connections": 0,
+      "total_shared_tables": 1,
+      "high_contention_tables": 0
+    }
+  },
+  "detailed_analysis": {
+    "shared_tables": {
+      "table::dw_water_quality": {
+        "table_name": "dw_water_quality",
+        "packages": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+          "plsql::Setup. PLSQL code to create the staging table.sql"
+        ],
+        "readers": [
+          "plsql::Setup. PLSQL code to create the staging table.sql::anonymous_block",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::anonymous_block"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 2,
+        "properties": {}
+      }
+    },
+    "shared_connections": {},
+    "shared_parameters": {},
+    "data_dependencies": [],
+    "execution_order": [
+      [
+        "plsql::Setup. PLSQL code to create the staging table.sql",
+        "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+      ]
+    ]
+  }
+}

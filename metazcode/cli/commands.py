@@ -11,6 +11,7 @@ from metazcode.cli.orchestrator import Orchestrator
 from metazcode.sdk.models.canonical_types import NodeType
 from metazcode.sdk.integration.index_integration import IndexIntegration
 from metazcode.sdk.models.config import DatabaseConfig, MetaZenseConfig
+from metazcode.sdk.ingestion.plsql import PlsqlLoader
 
 
 def database_option(f):
@@ -958,3 +959,194 @@ def complete(
 
 if __name__ == "__main__":
     cli()
+
+
+# --------------------------
+# PL/SQL specific commands
+# --------------------------
+
+@cli.command(name="plsql-ingest")
+@click.option(
+    "--path",
+    default=".",
+    help="The path to the PL/SQL project directory or a specific file.",
+)
+@database_option
+def plsql_ingest(
+    path: str,
+    database: Optional[str],
+    memgraph_host: Optional[str],
+    memgraph_port: Optional[int],
+    memgraph_username: Optional[str],
+    memgraph_password: Optional[str],
+):
+    """Ingest only PL/SQL ETL artifacts and populate the graph."""
+    click.echo(f"[PLSQL] Ingesting PL/SQL from: {os.path.abspath(path)}")
+
+    p = Path(path)
+    root_path: str
+    target_file: Optional[str] = None
+    if p.is_dir():
+        root_path = str(p.resolve())
+    elif p.is_file():
+        root_path = str(p.parent.resolve())
+        target_file = str(p.resolve())
+    else:
+        click.echo(f"[ERROR] Path '{path}' not found.", err=True)
+        return
+
+    # Build the graph client with configuration
+    db_config = get_database_config(
+        database, memgraph_host, memgraph_port, memgraph_username, memgraph_password
+    )
+    if not GraphClientBuilder.validate_connection(db_config):
+        click.echo(
+            f"Warning: Could not connect to {db_config.backend} backend. Falling back to NetworkX.",
+            err=True,
+        )
+    graph_client = GraphClientBuilder.get_client(db_config)
+
+    # Run only the PL/SQL loader
+    loader = PlsqlLoader(root_path=root_path, target_file=target_file)
+    total_nodes = 0
+    total_edges = 0
+    for nodes, edges in loader.ingest():
+        if nodes:
+            graph_client.add_nodes(nodes)
+            total_nodes += len(nodes)
+        if edges:
+            graph_client.add_edges(edges)
+            total_edges += len(edges)
+
+    click.echo(f"[PLSQL] Ingestion complete: added {total_nodes} nodes, {total_edges} edges")
+
+
+@cli.command(name="plsql-full")
+@click.option("--path", default=".", help="Path to PL/SQL project or file.")
+@click.option(
+    "--output",
+    default=None,
+    type=click.Path(dir_okay=False, writable=True),
+    help="Path to save analysis results (JSON).",
+)
+@database_option
+def plsql_full(
+    path: str,
+    output: Optional[str],
+    database: Optional[str],
+    memgraph_host: Optional[str],
+    memgraph_port: Optional[int],
+    memgraph_username: Optional[str],
+    memgraph_password: Optional[str],
+):
+    """PL/SQL analysis: ingest PL/SQL only, run cross-package analysis, export graph."""
+    click.echo("Starting PL/SQL Analysis (Ingest + Analyze)")
+    click.echo("=" * 70)
+    click.echo(f"Project path: {os.path.abspath(path)}")
+
+    p = Path(path)
+    root_path: str
+    target_file: Optional[str] = None
+    if p.is_dir():
+        root_path = str(p.resolve())
+    elif p.is_file():
+        root_path = str(p.parent.resolve())
+        target_file = str(p.resolve())
+    else:
+        click.echo(f"[ERROR] Path '{path}' not found.", err=True)
+        return
+
+    # Build graph client
+    db_config = get_database_config(
+        database, memgraph_host, memgraph_port, memgraph_username, memgraph_password
+    )
+    if not GraphClientBuilder.validate_connection(db_config):
+        click.echo(
+            f"Warning: Could not connect to {db_config.backend} backend. Falling back to NetworkX.",
+            err=True,
+        )
+    graph_client = GraphClientBuilder.get_client(db_config)
+
+    # Ingestion (PL/SQL only)
+    loader = PlsqlLoader(root_path=root_path, target_file=target_file)
+    for nodes, edges in loader.ingest():
+        if nodes:
+            graph_client.add_nodes(nodes)
+        if edges:
+            graph_client.add_edges(edges)
+
+    initial_nodes = graph_client.get_node_count()
+    initial_edges = graph_client.get_edge_count()
+    click.echo(f"Ingestion complete: {initial_nodes} nodes, {initial_edges} edges")
+
+    # Cross-package analysis (generic)
+    from metazcode.sdk.analysis.cross_package_analyzer import CrossPackageAnalyzer
+
+    analyzer = CrossPackageAnalyzer(graph_client)
+    analysis_results = analyzer.analyze()
+
+    final_nodes = graph_client.get_node_count()
+    final_edges = graph_client.get_edge_count()
+    new_edges = final_edges - initial_edges
+    click.echo(f"Analysis complete: +{new_edges} cross-package edges")
+
+    # Export graph (JSON)
+    enhanced_graph_path = Path("enhanced_graph_plsql.json")
+    try:
+        graph = graph_client.get_graph()
+        if hasattr(graph, 'is_multigraph'):
+            graph_data = nx.node_link_data(graph, edges="links")
+        else:
+            all_nodes = graph_client.get_all_nodes()
+            nodes_data = [node.to_dict() for node in all_nodes]
+            connection = graph_client.get_graph()
+            cursor = connection.cursor()
+            cursor.execute(
+                """
+                    MATCH (source)-[r]->(target)
+                    RETURN source.id as source_id, target.id as target_id, 
+                           type(r) as relation_type, properties(r) as properties
+                """
+            )
+            edge_results = cursor.fetchall()
+            edges_data = []
+            for source_id, target_id, relation_type, properties in edge_results:
+                edges_data.append({
+                    "source": source_id,
+                    "target": target_id,
+                    "relation": relation_type,
+                    "properties": properties if properties else {}
+                })
+            graph_data = {
+                "nodes": nodes_data,
+                "links": edges_data,
+                "metadata": {
+                    "node_count": len(nodes_data),
+                    "edge_count": len(edges_data),
+                    "graph_type": "memgraph"
+                }
+            }
+    except Exception as e:
+        click.echo(f"Warning: Could not export graph data: {e}")
+        graph_data = {"error": str(e), "nodes": [], "links": []}
+
+    def default_serializer(o):
+        if isinstance(o, (set, tuple)):
+            return list(o)
+        if hasattr(o, "to_dict"):
+            return o.to_dict()
+        try:
+            return str(o)
+        except TypeError:
+            return repr(o)
+
+    with open(enhanced_graph_path, "w") as f:
+        json.dump(graph_data, f, indent=2, default=default_serializer)
+    click.echo(f"Enhanced graph: {enhanced_graph_path.resolve()}")
+
+    if output:
+        out_path = Path(output)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, "w") as f:
+            json.dump(analysis_results, f, indent=2, default=str)
+        click.echo(f"Analysis results: {out_path.resolve()}")

@@ -1,0 +1,2 @@
+[console_scripts]
+metazcode = metazcode.cli.commands:cli

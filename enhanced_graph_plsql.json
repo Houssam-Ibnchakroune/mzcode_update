@@ -1,0 +1,1041 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "operation",
+      "name": "anonymous_block",
+      "properties": {
+        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\data_cleaning.sql",
+        "sql_semantics": [
+          {
+            "original_query": "select * from hr",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": null,
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM hr WHERE birthdate IS NOT NULL) LOOP BEGIN IF REGEXP_LIKE(rec.birthdate, '\\d{2}/\\d{2}/\\d{4}') THEN rec.birthdate := TO_DATE(rec.birthdate, 'MM/DD/YYYY')",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "WHERE",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM hr WHERE hire_date IS NOT NULL) LOOP BEGIN IF REGEXP_LIKE(rec.hire_date, '\\d{2}/\\d{2}/\\d{4}') THEN rec.hire_date := TO_DATE(rec.hire_date, 'MM/DD/YYYY')",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "WHERE",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM hr WHERE termdate IS NOT NULL AND termdate != ' ') LOOP BEGIN rec.termdate := TO_DATE('2029-10-29 06:09:38', 'YYYY-MM-DD HH24:MI:SS')",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "WHERE",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM hr WHERE birthdate IS NOT NULL) LOOP BEGIN rec.age := TRUNC(MONTHS_BETWEEN(SYSDATE, rec.birthdate) / 12)",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "WHERE",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select * from hr",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": null,
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "*",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "*",
+                "effective_name": "*"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": false,
+              "has_joins": false,
+              "join_types": []
+            }
+          }
+        ]
+      },
+      "context": {},
+      "id": "plsql::data_cleaning.sql::anonymous_block"
+    },
+    {
+      "node_type": "pipeline",
+      "name": "data_cleaning",
+      "properties": {
+        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\data_cleaning.sql",
+        "execution_priority": 1,
+        "upstream_dependencies": [],
+        "downstream_dependencies": [
+          "plsql::data_generation.sql"
+        ],
+        "shared_tables_used": [
+          "table::hr"
+        ],
+        "shared_connections_used": [],
+        "cross_package_analysis_complete": true
+      },
+      "context": {},
+      "id": "plsql::data_cleaning.sql"
+    },
+    {
+      "node_type": "table",
+      "name": "hr",
+      "properties": {},
+      "context": {},
+      "id": "table::hr"
+    },
+    {
+      "node_type": "table",
+      "name": "HR",
+      "properties": {},
+      "context": {},
+      "id": "table::HR"
+    },
+    {
+      "node_type": "operation",
+      "name": "varchar",
+      "properties": {},
+      "context": {},
+      "id": "plsql::varchar"
+    },
+    {
+      "node_type": "operation",
+      "name": "REGEXP_LIKE",
+      "properties": {},
+      "context": {},
+      "id": "plsql::REGEXP_LIKE"
+    },
+    {
+      "node_type": "operation",
+      "name": "TRUNC",
+      "properties": {},
+      "context": {},
+      "id": "plsql::TRUNC"
+    },
+    {
+      "node_type": "operation",
+      "name": "MONTHS_BETWEEN",
+      "properties": {},
+      "context": {},
+      "id": "plsql::MONTHS_BETWEEN"
+    },
+    {
+      "node_type": "operation",
+      "name": "anonymous_block",
+      "properties": {
+        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\database for PowerBI\\data_generation.sql",
+        "sql_semantics": [
+          {
+            "original_query": "select gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by gender",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "gender",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "gender",
+                "effective_name": "gender"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select race, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by race order by count(*) desc",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "race",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "race",
+                "effective_name": "race"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select min(age) as youngest, max(age) as oldest from hr where age>=18 and termdate = '0000-00-00'",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "min(age) as youngest",
+                "alias": "youngest",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "min(age)",
+                "effective_name": "youngest"
+              },
+              {
+                "expression": "max(age) as oldest",
+                "alias": "oldest",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "max(age)",
+                "effective_name": "oldest"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by age_group order by age_group",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group",
+                "alias": "age_group",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end",
+                "effective_name": "age_group"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group, gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by age_group, gender order by age_group, gender",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group",
+                "alias": "age_group",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end",
+                "effective_name": "age_group"
+              },
+              {
+                "expression": "gender",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "gender",
+                "effective_name": "gender"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 3,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select location, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by location",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "location",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "location",
+                "effective_name": "location"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select round(avg(datediff(termdate, hire_DAte))/365, 0) as avg_length_employment from hr where age>=18 and termdate <= curdate() and termdate <> '0000-00-00'",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "round(avg(datediff(termdate, hire_DAte))/365, 0) as avg_length_employment",
+                "alias": "avg_length_employment",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "round(avg(datediff(termdate, hire_DAte))/365, 0)",
+                "effective_name": "avg_length_employment"
+              }
+            ],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 1,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select department, gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by department, gender order by department",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "department",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "department",
+                "effective_name": "department"
+              },
+              {
+                "expression": "gender",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "gender",
+                "effective_name": "gender"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 3,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select jobtitle, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by jobtitle order by jobtitle desc",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "jobtitle",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "jobtitle",
+                "effective_name": "jobtitle"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select department, total_count, terminated_count, terminated_count/total_count as termination_rate from ( select department, count(*) as total_count, sum(case when termdate <> '0000-00-00' and termdate <=curdate() then 1 else 0 end) as terminated_count from hr where age>=18 group by department ) as subquery order by termination_rate desc",
+            "tables": [
+              {
+                "name": "(",
+                "alias": "select",
+                "schema": null,
+                "full_name": "("
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "department",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "department",
+                "effective_name": "department"
+              },
+              {
+                "expression": "total_count",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "total_count",
+                "effective_name": "total_count"
+              },
+              {
+                "expression": "terminated_count",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "terminated_count",
+                "effective_name": "terminated_count"
+              },
+              {
+                "expression": "terminated_count/total_count as termination_rate",
+                "alias": "termination_rate",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "terminated_count/total_count",
+                "effective_name": "termination_rate"
+              }
+            ],
+            "where_clause": "age>=18",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 4,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select location_state, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by location_state order by count desc",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "location_state",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "location_state",
+                "effective_name": "location_state"
+              },
+              {
+                "expression": "count(*) as count",
+                "alias": "count",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "count(*)",
+                "effective_name": "count"
+              }
+            ],
+            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select year, hires, terminations, hires - terminations as net_change, round((hires - terminations)/hires*100, 2) as net_change_ercent from ( select year(hire_Date) as year, count(*) as hires, sum(case when termdate<>'0000-00-00'and termdate<= curdate() then 1 else 0 end) as terminations from hr where age >=18 group by year(hire_date) ) as subquery order by year asc",
+            "tables": [
+              {
+                "name": "(",
+                "alias": "select",
+                "schema": null,
+                "full_name": "("
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "year",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "year",
+                "effective_name": "year"
+              },
+              {
+                "expression": "hires",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "hires",
+                "effective_name": "hires"
+              },
+              {
+                "expression": "terminations",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "terminations",
+                "effective_name": "terminations"
+              },
+              {
+                "expression": "hires - terminations as net_change",
+                "alias": "net_change",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "hires - terminations",
+                "effective_name": "net_change"
+              },
+              {
+                "expression": "round((hires - terminations)/hires*100, 2) as net_change_ercent",
+                "alias": "net_change_ercent",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "round((hires - terminations)/hires*100, 2)",
+                "effective_name": "net_change_ercent"
+              }
+            ],
+            "where_clause": "age >=18",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 5,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "select department, round(avg(datediff(termdate, hire_Date)/356), 0) as avg_teneur from hr where termdate <= curdate() and termdate <> '0000-00-00' and age >=18 group by department",
+            "tables": [
+              {
+                "name": "hr",
+                "alias": "where",
+                "schema": null,
+                "full_name": "hr"
+              }
+            ],
+            "joins": [],
+            "columns": [
+              {
+                "expression": "department",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "department",
+                "effective_name": "department"
+              },
+              {
+                "expression": "round(avg(datediff(termdate, hire_Date)/356), 0) as avg_teneur",
+                "alias": "avg_teneur",
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "round(avg(datediff(termdate, hire_Date)/356), 0)",
+                "effective_name": "avg_teneur"
+              }
+            ],
+            "where_clause": "termdate <= curdate() and termdate <> '0000-00-00' and age >=18",
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 2,
+              "has_aliases": true,
+              "has_joins": false,
+              "join_types": []
+            }
+          }
+        ]
+      },
+      "context": {},
+      "id": "plsql::data_generation.sql::anonymous_block"
+    },
+    {
+      "node_type": "pipeline",
+      "name": "data_generation",
+      "properties": {
+        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\database for PowerBI\\data_generation.sql",
+        "execution_priority": 2,
+        "upstream_dependencies": [
+          "plsql::data_cleaning.sql"
+        ],
+        "downstream_dependencies": [],
+        "shared_tables_used": [
+          "table::hr"
+        ],
+        "shared_connections_used": [],
+        "cross_package_analysis_complete": true
+      },
+      "context": {},
+      "id": "plsql::data_generation.sql"
+    },
+    {
+      "node_type": "operation",
+      "name": "count",
+      "properties": {},
+      "context": {},
+      "id": "plsql::count"
+    },
+    {
+      "node_type": "operation",
+      "name": "min",
+      "properties": {},
+      "context": {},
+      "id": "plsql::min"
+    },
+    {
+      "node_type": "operation",
+      "name": "max",
+      "properties": {},
+      "context": {},
+      "id": "plsql::max"
+    },
+    {
+      "node_type": "operation",
+      "name": "round",
+      "properties": {},
+      "context": {},
+      "id": "plsql::round"
+    },
+    {
+      "node_type": "operation",
+      "name": "avg",
+      "properties": {},
+      "context": {},
+      "id": "plsql::avg"
+    },
+    {
+      "node_type": "operation",
+      "name": "datediff",
+      "properties": {},
+      "context": {},
+      "id": "plsql::datediff"
+    },
+    {
+      "node_type": "operation",
+      "name": "curdate",
+      "properties": {},
+      "context": {},
+      "id": "plsql::curdate"
+    },
+    {
+      "node_type": "operation",
+      "name": "sum",
+      "properties": {},
+      "context": {},
+      "id": "plsql::sum"
+    },
+    {
+      "node_type": "operation",
+      "name": "year",
+      "properties": {},
+      "context": {},
+      "id": "plsql::year"
+    },
+    {
+      "node_type": "table",
+      "name": "(",
+      "properties": {},
+      "context": {},
+      "id": "table::("
+    }
+  ],
+  "links": [
+    {
+      "relation": "writes_to",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "table::hr"
+    },
+    {
+      "relation": "writes_to",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "table::HR"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "plsql::varchar"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "plsql::REGEXP_LIKE"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "plsql::TRUNC"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql::anonymous_block",
+      "target": "plsql::MONTHS_BETWEEN"
+    },
+    {
+      "relation": "contains",
+      "properties": {},
+      "source": "plsql::data_cleaning.sql",
+      "target": "plsql::data_cleaning.sql::anonymous_block"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "table::hr"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::count"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::min"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::max"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::round"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::avg"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::datediff"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::curdate"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::sum"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::data_generation.sql::anonymous_block",
+      "target": "plsql::year"
+    },
+    {
+      "relation": "contains",
+      "properties": {},
+      "source": "plsql::data_generation.sql",
+      "target": "plsql::data_generation.sql::anonymous_block"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {
+        "dependency_type": "data_flow",
+        "shared_resource": "table::hr",
+        "shared_resource_name": "hr",
+        "description": "plsql::data_cleaning.sql must complete before plsql::data_generation.sql (via hr)"
+      },
+      "source": "plsql::data_generation.sql",
+      "target": "plsql::data_cleaning.sql"
+    }
+  ]
+}
