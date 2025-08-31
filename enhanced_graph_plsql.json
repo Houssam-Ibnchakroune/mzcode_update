@@ -5,1037 +5,2861 @@
   "nodes": [
     {
       "node_type": "operation",
-      "name": "anonymous_block",
+      "name": "table_creation_task",
       "properties": {
-        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\data_cleaning.sql",
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\Setup. PLSQL code to create the staging table.sql",
+        "operation_subtype": "DATA_FLOW",
+        "sql_statements_count": 1,
+        "block_size": 912,
+        "task_name": "table_creation_task",
+        "has_explicit_task_name": true,
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\Setup. PLSQL code to create the staging table.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='table_creation_task']",
         "sql_semantics": [
           {
-            "original_query": "select * from hr",
+            "original_query": "SELECT * FROM dw_water_quality",
             "tables": [
               {
-                "name": "hr",
+                "name": "dw_water_quality",
                 "alias": null,
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
+            "columns": [],
+            "inline_views": [],
             "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
-              "column_count": 1,
+              "column_count": 0,
+              "inline_view_count": 0,
               "has_aliases": false,
               "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "SELECT * FROM hr WHERE birthdate IS NOT NULL) LOOP BEGIN IF REGEXP_LIKE(rec.birthdate, '\\d{2}/\\d{2}/\\d{4}') THEN rec.birthdate := TO_DATE(rec.birthdate, 'MM/DD/YYYY')",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "WHERE",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
-            "where_clause": null,
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 1,
-              "has_aliases": false,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "SELECT * FROM hr WHERE hire_date IS NOT NULL) LOOP BEGIN IF REGEXP_LIKE(rec.hire_date, '\\d{2}/\\d{2}/\\d{4}') THEN rec.hire_date := TO_DATE(rec.hire_date, 'MM/DD/YYYY')",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "WHERE",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
-            "where_clause": null,
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 1,
-              "has_aliases": false,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "SELECT * FROM hr WHERE termdate IS NOT NULL AND termdate != ' ') LOOP BEGIN rec.termdate := TO_DATE('2029-10-29 06:09:38', 'YYYY-MM-DD HH24:MI:SS')",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "WHERE",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
-            "where_clause": null,
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 1,
-              "has_aliases": false,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "SELECT * FROM hr WHERE birthdate IS NOT NULL) LOOP BEGIN rec.age := TRUNC(MONTHS_BETWEEN(SYSDATE, rec.birthdate) / 12)",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "WHERE",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
-            "where_clause": null,
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 1,
-              "has_aliases": false,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select * from hr",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": null,
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "*",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "*",
-                "effective_name": "*"
-              }
-            ],
-            "where_clause": null,
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 1,
-              "has_aliases": false,
-              "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           }
         ]
       },
       "context": {},
-      "id": "plsql::data_cleaning.sql::anonymous_block"
+      "id": "plsql::Setup. PLSQL code to create the staging table.sql::table_creation_task"
     },
     {
       "node_type": "pipeline",
-      "name": "data_cleaning",
+      "name": "Setup. PLSQL code to create the staging table",
       "properties": {
-        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\data_cleaning.sql",
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\Setup. PLSQL code to create the staging table.sql",
+        "technology": "ORACLE",
+        "fqn": "oracle/Setup. PLSQL code to create the staging table",
+        "qualified_name": "oracle/Setup. PLSQL code to create the staging table",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\Setup. PLSQL code to create the staging table.sql",
+        "source_file_type": "sql",
+        "xml_path": "//plsql_operation[@name='Setup. PLSQL code to create the staging table']",
         "execution_priority": 1,
         "upstream_dependencies": [],
-        "downstream_dependencies": [
-          "plsql::data_generation.sql"
-        ],
+        "downstream_dependencies": [],
         "shared_tables_used": [
-          "table::hr"
+          "table::dw_water_quality"
         ],
         "shared_connections_used": [],
         "cross_package_analysis_complete": true
       },
       "context": {},
-      "id": "plsql::data_cleaning.sql"
+      "id": "plsql::Setup. PLSQL code to create the staging table.sql"
     },
     {
       "node_type": "table",
-      "name": "hr",
-      "properties": {},
-      "context": {},
-      "id": "table::hr"
-    },
-    {
-      "node_type": "table",
-      "name": "HR",
-      "properties": {},
-      "context": {},
-      "id": "table::HR"
-    },
-    {
-      "node_type": "operation",
-      "name": "varchar",
-      "properties": {},
-      "context": {},
-      "id": "plsql::varchar"
-    },
-    {
-      "node_type": "operation",
-      "name": "REGEXP_LIKE",
-      "properties": {},
-      "context": {},
-      "id": "plsql::REGEXP_LIKE"
-    },
-    {
-      "node_type": "operation",
-      "name": "TRUNC",
-      "properties": {},
-      "context": {},
-      "id": "plsql::TRUNC"
-    },
-    {
-      "node_type": "operation",
-      "name": "MONTHS_BETWEEN",
-      "properties": {},
-      "context": {},
-      "id": "plsql::MONTHS_BETWEEN"
-    },
-    {
-      "node_type": "operation",
-      "name": "anonymous_block",
+      "name": "dw_water_quality",
       "properties": {
-        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\database for PowerBI\\data_generation.sql",
+        "table_source": "referenced",
+        "schema": "",
+        "operation_type": "SELECT",
+        "sql_semantics": {
+          "joins": [
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimLocationTable",
+                "alias": "l",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimPurposeTable",
+                "alias": "p",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimComplianceTable",
+                "alias": "c",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimSampleTable",
+                "alias": "sm",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            }
+          ],
+          "tables": [
+            {
+              "name": "dw_water_quality",
+              "alias": null,
+              "schema": null
+            },
+            {
+              "name": "dimLocationTable",
+              "alias": "l",
+              "schema": null
+            },
+            {
+              "name": "dimPurposeTable",
+              "alias": "p",
+              "schema": null
+            },
+            {
+              "name": "dimComplianceTable",
+              "alias": "c",
+              "schema": null
+            },
+            {
+              "name": "dimSampleTable",
+              "alias": "sm",
+              "schema": null
+            },
+            {
+              "name": "dimSensorTable",
+              "alias": "s",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            }
+          ],
+          "columns": [
+            {
+              "expression": "DISTINCT samplesamplingPoint",
+              "alias": null,
+              "source_table": null,
+              "source_alias": null,
+              "column_name": "DISTINCT samplesamplingPoint"
+            },
+            {
+              "expression": "samplesamplingPointnotation",
+              "alias": null,
+              "source_table": null,
+              "source_alias": null,
+              "column_name": "samplesamplingPointnotation"
+            },
+            {
+              "expression": "samplesamplingPointlabel",
+              "alias": null,
+              "source_table": null,
+              "source_alias": null,
+              "column_name": "samplesamplingPointlabel"
+            },
+            {
+              "expression": "samplesamplingPointeasting",
+              "alias": null,
+              "source_table": null,
+              "source_alias": null,
+              "column_name": "samplesamplingPointeasting"
+            },
+            {
+              "expression": "samplesamplingPointnorthing",
+              "alias": null,
+              "source_table": null,
+              "source_alias": null,
+              "column_name": "samplesamplingPointnorthing"
+            }
+          ],
+          "where_clause": null
+        },
+        "cleaned_expressions": [
+          {
+            "original": "DISTINCT samplesamplingPoint",
+            "cleaned": "DISTINCT samplesamplingPoint",
+            "column_name": "DISTINCT samplesamplingPoint"
+          },
+          {
+            "original": "samplesamplingPointnotation",
+            "cleaned": "samplesamplingPointnotation",
+            "column_name": "samplesamplingPointnotation"
+          },
+          {
+            "original": "samplesamplingPointlabel",
+            "cleaned": "samplesamplingPointlabel",
+            "column_name": "samplesamplingPointlabel"
+          },
+          {
+            "original": "samplesamplingPointeasting",
+            "cleaned": "samplesamplingPointeasting",
+            "column_name": "samplesamplingPointeasting"
+          },
+          {
+            "original": "samplesamplingPointnorthing",
+            "cleaned": "samplesamplingPointnorthing",
+            "column_name": "samplesamplingPointnorthing"
+          }
+        ],
+        "fqn": "oracle.default.public.dw_water_quality",
+        "qualified_name": "oracle.default.public.dw_water_quality",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='dw_water_quality']"
+      },
+      "context": {},
+      "id": "table::dw_water_quality"
+    },
+    {
+      "node_type": "operation",
+      "name": "data_analysis_task",
+      "properties": {
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "operation_subtype": "DATA_FLOW",
+        "sql_statements_count": 9,
+        "block_size": 2668,
+        "task_name": "data_analysis_task",
+        "has_explicit_task_name": true,
+        "column_lineage": [
+          {
+            "source_expression": "DISTINCT ID1",
+            "cleaned_expression": "DISTINCT ID1",
+            "target_column": "DISTINCT ID1",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT DISTINCT ID1 FROM dw_water_quality",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "determinandlabel",
+            "cleaned_expression": "determinandlabel",
+            "target_column": "determinandlabel",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT determinandlabel, COUNT(determinandlabel) cnt FROM dw_water_quality GROUP BY determinandlabel...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "COUNT(determinandlabel) cnt",
+            "cleaned_expression": "AGGREGATE_WITH_ALIAS",
+            "target_column": "COUNT(determinandlabel) cnt",
+            "transformation_type": "TRANSFORMED",
+            "sql_statement": "SELECT determinandlabel, COUNT(determinandlabel) cnt FROM dw_water_quality GROUP BY determinandlabel...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "determinandunitlabel",
+            "cleaned_expression": "determinandunitlabel",
+            "target_column": "determinandunitlabel",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT determinandunitlabel, COUNT(determinandunitlabel) cnt FROM dw_water_quality GROUP BY determin...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "COUNT(determinandunitlabel) cnt",
+            "cleaned_expression": "AGGREGATE_WITH_ALIAS",
+            "target_column": "COUNT(determinandunitlabel) cnt",
+            "transformation_type": "TRANSFORMED",
+            "sql_statement": "SELECT determinandunitlabel, COUNT(determinandunitlabel) cnt FROM dw_water_quality GROUP BY determin...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "DISTINCT s.determinanddefinition",
+            "cleaned_expression": "DISTINCT s.determinanddefinition",
+            "target_column": "DISTINCT s.determinanddefinition",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT DISTINCT s.determinanddefinition FROM ( SELECT * FROM dw_water_quality WHERE determinandunitl...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "s.ID_",
+            "cleaned_expression": "s.ID_",
+            "target_column": "ID_",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.ID_ FROM ( SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'unitless' UNION SEL...",
+            "source_table": null,
+            "source_alias": "s"
+          }
+        ],
+        "total_column_mappings": 7,
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='data_analysis_task']",
         "sql_semantics": [
           {
-            "original_query": "select gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by gender",
+            "original_query": "SELECT * FROM dw_water_quality",
             "tables": [
               {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "gender",
+                "name": "dw_water_quality",
                 "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "gender",
-                "effective_name": "gender"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select race, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by race order by count(*) desc",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
-            "columns": [
-              {
-                "expression": "race",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "race",
-                "effective_name": "race"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select min(age) as youngest, max(age) as oldest from hr where age>=18 and termdate = '0000-00-00'",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "min(age) as youngest",
-                "alias": "youngest",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "min(age)",
-                "effective_name": "youngest"
-              },
-              {
-                "expression": "max(age) as oldest",
-                "alias": "oldest",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "max(age)",
-                "effective_name": "oldest"
-              }
-            ],
+            "columns": [],
+            "inline_views": [],
             "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by age_group order by age_group",
+            "original_query": "SELECT DISTINCT ID1 FROM dw_water_quality",
             "tables": [
               {
-                "name": "hr",
-                "alias": "where",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
             "columns": [
               {
-                "expression": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group",
-                "alias": "age_group",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end",
-                "effective_name": "age_group"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group, gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by age_group, gender order by age_group, gender",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end as age_group",
-                "alias": "age_group",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "case when age >=18 and age<=24 then '18-24' when age>=25 and age <=34 then '25-34' when age >=35 and age <=44 then '35-44' when age >=45 and age <= 54 then '44-54' when age >=55 and age <= 64 then '55-64' else '65+' end",
-                "effective_name": "age_group"
-              },
-              {
-                "expression": "gender",
+                "expression": "DISTINCT ID1",
                 "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "gender",
-                "effective_name": "gender"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
+                "column_name": "DISTINCT ID1",
+                "effective_name": "DISTINCT ID1"
               }
             ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 3,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select location, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by location",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "location",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "location",
-                "effective_name": "location"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select round(avg(datediff(termdate, hire_DAte))/365, 0) as avg_length_employment from hr where age>=18 and termdate <= curdate() and termdate <> '0000-00-00'",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "round(avg(datediff(termdate, hire_DAte))/365, 0) as avg_length_employment",
-                "alias": "avg_length_employment",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "round(avg(datediff(termdate, hire_DAte))/365, 0)",
-                "effective_name": "avg_length_employment"
-              }
-            ],
+            "inline_views": [],
             "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
               "column_count": 1,
-              "has_aliases": true,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select department, gender, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by department, gender order by department",
+            "original_query": "SELECT * FROM dw_water_quality WHERE ID1 IS NULL",
             "tables": [
               {
-                "name": "hr",
-                "alias": "where",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
-            "columns": [
-              {
-                "expression": "department",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "department",
-                "effective_name": "department"
-              },
-              {
-                "expression": "gender",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "gender",
-                "effective_name": "gender"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
-              "column_count": 3,
-              "has_aliases": true,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select jobtitle, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by jobtitle order by jobtitle desc",
+            "original_query": "SELECT determinandlabel, COUNT(determinandlabel) cnt FROM dw_water_quality GROUP BY determinandlabel ORDER BY cnt",
             "tables": [
               {
-                "name": "hr",
-                "alias": "where",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
             "columns": [
               {
-                "expression": "jobtitle",
+                "expression": "determinandlabel",
                 "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "jobtitle",
-                "effective_name": "jobtitle"
+                "column_name": "determinandlabel",
+                "effective_name": "determinandlabel"
               },
               {
-                "expression": "count(*) as count",
-                "alias": "count",
+                "expression": "COUNT(determinandlabel) cnt",
+                "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
+                "column_name": "COUNT(determinandlabel) cnt",
+                "effective_name": "COUNT(determinandlabel) cnt"
               }
             ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "inline_views": [],
+            "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
               "column_count": 2,
-              "has_aliases": true,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select department, total_count, terminated_count, terminated_count/total_count as termination_rate from ( select department, count(*) as total_count, sum(case when termdate <> '0000-00-00' and termdate <=curdate() then 1 else 0 end) as terminated_count from hr where age>=18 group by department ) as subquery order by termination_rate desc",
+            "original_query": "SELECT determinandunitlabel, COUNT(determinandunitlabel) cnt FROM dw_water_quality GROUP BY determinandunitlabel ORDER BY cnt",
             "tables": [
               {
-                "name": "(",
-                "alias": "select",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "("
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
             "columns": [
               {
-                "expression": "department",
+                "expression": "determinandunitlabel",
                 "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "department",
-                "effective_name": "department"
+                "column_name": "determinandunitlabel",
+                "effective_name": "determinandunitlabel"
               },
               {
-                "expression": "total_count",
+                "expression": "COUNT(determinandunitlabel) cnt",
                 "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "total_count",
-                "effective_name": "total_count"
-              },
-              {
-                "expression": "terminated_count",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "terminated_count",
-                "effective_name": "terminated_count"
-              },
-              {
-                "expression": "terminated_count/total_count as termination_rate",
-                "alias": "termination_rate",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "terminated_count/total_count",
-                "effective_name": "termination_rate"
+                "column_name": "COUNT(determinandunitlabel) cnt",
+                "effective_name": "COUNT(determinandunitlabel) cnt"
               }
             ],
-            "where_clause": "age>=18",
-            "migration_metadata": {
-              "table_count": 1,
-              "join_count": 0,
-              "column_count": 4,
-              "has_aliases": true,
-              "has_joins": false,
-              "join_types": []
-            }
-          },
-          {
-            "original_query": "select location_state, count(*) as count from hr where age>=18 and termdate = '0000-00-00' group by location_state order by count desc",
-            "tables": [
-              {
-                "name": "hr",
-                "alias": "where",
-                "schema": null,
-                "full_name": "hr"
-              }
-            ],
-            "joins": [],
-            "columns": [
-              {
-                "expression": "location_state",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "location_state",
-                "effective_name": "location_state"
-              },
-              {
-                "expression": "count(*) as count",
-                "alias": "count",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "count(*)",
-                "effective_name": "count"
-              }
-            ],
-            "where_clause": "age>=18 and termdate = '0000-00-00'",
+            "inline_views": [],
+            "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
               "column_count": 2,
-              "has_aliases": true,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select year, hires, terminations, hires - terminations as net_change, round((hires - terminations)/hires*100, 2) as net_change_ercent from ( select year(hire_Date) as year, count(*) as hires, sum(case when termdate<>'0000-00-00'and termdate<= curdate() then 1 else 0 end) as terminations from hr where age >=18 group by year(hire_date) ) as subquery order by year asc",
+            "original_query": "SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'unitless' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'text' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'coded'",
             "tables": [
               {
-                "name": "(",
-                "alias": "select",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "("
+                "full_name": "dw_water_quality"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT DISTINCT s.determinanddefinition FROM ( SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'unitless' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'text' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'coded' ) s",
+            "tables": [
+              {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null,
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
             "columns": [
               {
-                "expression": "year",
+                "expression": "DISTINCT s.determinanddefinition",
                 "alias": null,
                 "source_table": null,
                 "source_alias": null,
-                "column_name": "year",
-                "effective_name": "year"
-              },
-              {
-                "expression": "hires",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "hires",
-                "effective_name": "hires"
-              },
-              {
-                "expression": "terminations",
-                "alias": null,
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "terminations",
-                "effective_name": "terminations"
-              },
-              {
-                "expression": "hires - terminations as net_change",
-                "alias": "net_change",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "hires - terminations",
-                "effective_name": "net_change"
-              },
-              {
-                "expression": "round((hires - terminations)/hires*100, 2) as net_change_ercent",
-                "alias": "net_change_ercent",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "round((hires - terminations)/hires*100, 2)",
-                "effective_name": "net_change_ercent"
+                "column_name": "DISTINCT s.determinanddefinition",
+                "effective_name": "DISTINCT s.determinanddefinition"
               }
             ],
-            "where_clause": "age >=18",
+            "inline_views": [],
+            "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
-              "column_count": 5,
-              "has_aliases": true,
+              "column_count": 1,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           },
           {
-            "original_query": "select department, round(avg(datediff(termdate, hire_Date)/356), 0) as avg_teneur from hr where termdate <= curdate() and termdate <> '0000-00-00' and age >=18 group by department",
+            "original_query": "SELECT s.ID_ FROM ( SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'unitless' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'text' UNION SELECT * FROM dw_water_quality WHERE determinandunitlabel = 'coded' ) s )",
             "tables": [
               {
-                "name": "hr",
-                "alias": "where",
+                "name": "dw_water_quality",
+                "alias": null,
                 "schema": null,
-                "full_name": "hr"
+                "full_name": "dw_water_quality"
               }
             ],
             "joins": [],
             "columns": [
               {
-                "expression": "department",
+                "expression": "s.ID_",
                 "alias": null,
                 "source_table": null,
-                "source_alias": null,
-                "column_name": "department",
-                "effective_name": "department"
-              },
-              {
-                "expression": "round(avg(datediff(termdate, hire_Date)/356), 0) as avg_teneur",
-                "alias": "avg_teneur",
-                "source_table": null,
-                "source_alias": null,
-                "column_name": "round(avg(datediff(termdate, hire_Date)/356), 0)",
-                "effective_name": "avg_teneur"
+                "source_alias": "s",
+                "column_name": "ID_",
+                "effective_name": "ID_"
               }
             ],
-            "where_clause": "termdate <= curdate() and termdate <> '0000-00-00' and age >=18",
+            "inline_views": [],
+            "where_clause": null,
             "migration_metadata": {
               "table_count": 1,
               "join_count": 0,
-              "column_count": 2,
-              "has_aliases": true,
+              "column_count": 1,
+              "inline_view_count": 0,
+              "has_aliases": false,
               "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dw_water_quality",
+            "tables": [
+              {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null,
+                "full_name": "dw_water_quality"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
               "join_types": []
             }
           }
         ]
       },
       "context": {},
-      "id": "plsql::data_generation.sql::anonymous_block"
+      "id": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::data_analysis_task"
     },
     {
       "node_type": "pipeline",
-      "name": "data_generation",
+      "name": "1. Data exploration column analysis using SQL queries and data cleaning",
       "properties": {
-        "file": "C:\\Users\\Dell\\Documents\\stage\\mzcode\\temp\\Human-Resources-data-pipeline\\Main\\database for PowerBI\\data_generation.sql",
-        "execution_priority": 2,
-        "upstream_dependencies": [
-          "plsql::data_cleaning.sql"
-        ],
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "technology": "ORACLE",
+        "fqn": "oracle/1. Data exploration column analysis using SQL queries and data cleaning",
+        "qualified_name": "oracle/1. Data exploration column analysis using SQL queries and data cleaning",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "source_file_type": "sql",
+        "xml_path": "//plsql_operation[@name='1. Data exploration column analysis using SQL queries and data cleaning']",
+        "execution_priority": 1,
+        "upstream_dependencies": [],
         "downstream_dependencies": [],
         "shared_tables_used": [
-          "table::hr"
+          "table::dw_water_quality"
         ],
         "shared_connections_used": [],
         "cross_package_analysis_complete": true
       },
       "context": {},
-      "id": "plsql::data_generation.sql"
+      "id": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql"
     },
     {
       "node_type": "operation",
-      "name": "count",
-      "properties": {},
+      "name": "COUNT",
+      "properties": {
+        "technology": "ORACLE"
+      },
       "context": {},
-      "id": "plsql::count"
+      "id": "plsql::COUNT"
     },
     {
       "node_type": "operation",
-      "name": "min",
-      "properties": {},
+      "name": "cursor_processing_c_location",
+      "properties": {
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "operation_subtype": "DATA_FLOW",
+        "sql_statements_count": 6,
+        "block_size": 7208,
+        "task_name": "cursor_processing_c_location",
+        "has_explicit_task_name": true,
+        "cursor_lineage": [
+          {
+            "cursor_name": "c_location",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT samplesamplingPoint",
+                "alias": null,
+                "expression": "DISTINCT samplesamplingPoint",
+                "source_table": null
+              },
+              {
+                "column_name": "samplesamplingPointnotation",
+                "alias": null,
+                "expression": "samplesamplingPointnotation",
+                "source_table": null
+              },
+              {
+                "column_name": "samplesamplingPointlabel",
+                "alias": null,
+                "expression": "samplesamplingPointlabel",
+                "source_table": null
+              },
+              {
+                "column_name": "samplesamplingPointeasting",
+                "alias": null,
+                "expression": "samplesamplingPointeasting",
+                "source_table": null
+              },
+              {
+                "column_name": "samplesamplingPointnorthing",
+                "alias": null,
+                "expression": "samplesamplingPointnorthing",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        samplesamplingPoint, \n        samplesamplingPointnotation, \n        samplesamplingPointlabel,  \n        samplesamplingPointeasting, \n        samplesamplingPointnorthing\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_purpose",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT samplepurposelabel",
+                "alias": null,
+                "expression": "DISTINCT samplepurposelabel",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        samplepurposelabel\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_compliance",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT sampleisComplianceSample",
+                "alias": null,
+                "expression": "DISTINCT sampleisComplianceSample",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        sampleisComplianceSample\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_sample",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT samplesampledMaterialTypelabel",
+                "alias": null,
+                "expression": "DISTINCT samplesampledMaterialTypelabel",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        samplesampledMaterialTypelabel\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_sensor",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT determinandlabel",
+                "alias": null,
+                "expression": "DISTINCT determinandlabel",
+                "source_table": null
+              },
+              {
+                "column_name": "determinanddefinition",
+                "alias": null,
+                "expression": "determinanddefinition",
+                "source_table": null
+              },
+              {
+                "column_name": "determinandnotation",
+                "alias": null,
+                "expression": "determinandnotation",
+                "source_table": null
+              },
+              {
+                "column_name": "determinandunitlabel",
+                "alias": null,
+                "expression": "determinandunitlabel",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        determinandlabel, \n        determinanddefinition, \n        determinandnotation, \n        determinandunitlabel\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_time",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "DISTINCT samplesampleDateTime",
+                "alias": null,
+                "expression": "DISTINCT samplesampleDateTime",
+                "source_table": null
+              }
+            ],
+            "source_sql": "SELECT DISTINCT \n        samplesampleDateTime\n    FROM dw_water_quality"
+          },
+          {
+            "cursor_name": "c_fact",
+            "operation_type": "CURSOR_LOAD",
+            "input_columns": [
+              {
+                "table_name": "dw_water_quality",
+                "schema": "public",
+                "fqn": "oracle.default.public.dw_water_quality"
+              },
+              {
+                "table_name": "dimLocationTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimLocationTable"
+              },
+              {
+                "table_name": "dimPurposeTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimPurposeTable"
+              },
+              {
+                "table_name": "dimComplianceTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimComplianceTable"
+              },
+              {
+                "table_name": "dimSampleTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimSampleTable"
+              },
+              {
+                "table_name": "dimSensorTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimSensorTable"
+              },
+              {
+                "table_name": "dimTimeTable",
+                "schema": "public",
+                "fqn": "oracle.default.public.dimTimeTable"
+              }
+            ],
+            "output_columns": [
+              {
+                "column_name": "locationID",
+                "alias": null,
+                "expression": "l.locationID",
+                "source_table": "dimLocationTable"
+              },
+              {
+                "column_name": "purposeID",
+                "alias": null,
+                "expression": "p.purposeID",
+                "source_table": "dimPurposeTable"
+              },
+              {
+                "column_name": "complianceID",
+                "alias": null,
+                "expression": "c.complianceID",
+                "source_table": "dimComplianceTable"
+              },
+              {
+                "column_name": "sampleID",
+                "alias": null,
+                "expression": "sm.sampleID",
+                "source_table": "dimSampleTable"
+              },
+              {
+                "column_name": "timeID",
+                "alias": null,
+                "expression": "t.timeID",
+                "source_table": "dimTimeTable"
+              },
+              {
+                "column_name": "sensorID",
+                "alias": null,
+                "expression": "s.sensorID",
+                "source_table": "dimSensorTable"
+              },
+              {
+                "column_name": "result",
+                "alias": null,
+                "expression": "wq.result",
+                "source_table": "dw_water_quality"
+              },
+              {
+                "column_name": "ID_",
+                "alias": null,
+                "expression": "wq.ID_",
+                "source_table": "dw_water_quality"
+              },
+              {
+                "column_name": "samplesamplingPointlabel",
+                "alias": null,
+                "expression": "wq.samplesamplingPointlabel",
+                "source_table": "dw_water_quality"
+              },
+              {
+                "column_name": "determinandlabel",
+                "alias": null,
+                "expression": "wq.determinandlabel",
+                "source_table": "dw_water_quality"
+              },
+              {
+                "column_name": "samplesampleDateTime",
+                "alias": null,
+                "expression": "wq.samplesampleDateTime",
+                "source_table": "dw_water_quality"
+              }
+            ],
+            "source_sql": "SELECT\n        l.locationID,\n        p.purposeID,\n        c.complianceID,\n        sm.sampleID,\n        t.timeID, \n        s.sensorID,\n        wq.result,\n        wq.ID_,\n        wq.samplesamplingPointlabel,\n        wq.determinandlabel,\n        wq.samplesampleDateTime\n    FROM dw_water_quality wq\n        INNER JOIN dimLocationTable l \n    ON wq.samplesamplingPointlabel = l.measurementLocation\n            INNER JOIN dimPurposeTable p \n    ON wq.samplepurposelabel = p.samplingPurpose\n        INNER JOIN dimComplianceTable c \n    ON wq.sampleisComplianceSample = c.sampleCompliance\n        INNER JOIN dimSampleTable sm \n    ON wq.samplesampledMaterialTypelabel = sm.samplingMaterial\n        INNER JOIN dimSensorTable s \n    ON wq.determinandlabel = s.sensorType\n        INNER JOIN dimTimeTable t \n    ON wq.samplesampleDateTime = t.measurementDate"
+          }
+        ],
+        "has_load_operations": true,
+        "cursor_count": 7,
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='cursor_processing_c_location']",
+        "sql_semantics": [
+          {
+            "original_query": "SELECT * FROM dimLocationTable",
+            "tables": [
+              {
+                "name": "dimLocationTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimLocationTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dimPurposeTable",
+            "tables": [
+              {
+                "name": "dimPurposeTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimPurposeTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dimComplianceTable",
+            "tables": [
+              {
+                "name": "dimComplianceTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimComplianceTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dimSampleTable",
+            "tables": [
+              {
+                "name": "dimSampleTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimSampleTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dimSensorTable",
+            "tables": [
+              {
+                "name": "dimSensorTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimSensorTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          },
+          {
+            "original_query": "SELECT * FROM dimTimeTable",
+            "tables": [
+              {
+                "name": "dimTimeTable",
+                "alias": null,
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [],
+            "columns": [],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 1,
+              "join_count": 0,
+              "column_count": 0,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": false,
+              "has_inline_views": false,
+              "join_types": []
+            }
+          }
+        ]
+      },
       "context": {},
-      "id": "plsql::min"
+      "id": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location"
     },
     {
-      "node_type": "operation",
-      "name": "max",
-      "properties": {},
+      "node_type": "pipeline",
+      "name": "2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors",
+      "properties": {
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "technology": "ORACLE",
+        "fqn": "oracle/2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors",
+        "qualified_name": "oracle/2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "source_file_type": "sql",
+        "xml_path": "//plsql_operation[@name='2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors']",
+        "execution_priority": 1,
+        "upstream_dependencies": [],
+        "downstream_dependencies": [],
+        "shared_tables_used": [
+          "table::dw_water_quality",
+          "table::dimLocationTable",
+          "table::dimSensorTable",
+          "table::dimTimeTable",
+          "table::factMeasurementsTable"
+        ],
+        "shared_connections_used": [],
+        "cross_package_analysis_complete": true
+      },
       "context": {},
-      "id": "plsql::max"
-    },
-    {
-      "node_type": "operation",
-      "name": "round",
-      "properties": {},
-      "context": {},
-      "id": "plsql::round"
-    },
-    {
-      "node_type": "operation",
-      "name": "avg",
-      "properties": {},
-      "context": {},
-      "id": "plsql::avg"
-    },
-    {
-      "node_type": "operation",
-      "name": "datediff",
-      "properties": {},
-      "context": {},
-      "id": "plsql::datediff"
-    },
-    {
-      "node_type": "operation",
-      "name": "curdate",
-      "properties": {},
-      "context": {},
-      "id": "plsql::curdate"
-    },
-    {
-      "node_type": "operation",
-      "name": "sum",
-      "properties": {},
-      "context": {},
-      "id": "plsql::sum"
-    },
-    {
-      "node_type": "operation",
-      "name": "year",
-      "properties": {},
-      "context": {},
-      "id": "plsql::year"
+      "id": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
     },
     {
       "node_type": "table",
-      "name": "(",
-      "properties": {},
+      "name": "dimLocationTable",
+      "properties": {
+        "table_source": "referenced",
+        "schema": "",
+        "operation_type": "SELECT",
+        "sql_semantics": {
+          "joins": [
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            }
+          ],
+          "tables": [
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimSensorTable",
+              "alias": "s",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            }
+          ],
+          "columns": [
+            {
+              "expression": "s.measurementMonth",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "measurementMonth"
+            },
+            {
+              "expression": "s.sensorType",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "sensorType"
+            },
+            {
+              "expression": "s.numberOfSensors",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "numberOfSensors"
+            }
+          ],
+          "where_clause": "s.sensorType = 'pH'"
+        },
+        "cleaned_expressions": [
+          {
+            "original": "s.measurementMonth",
+            "cleaned": "s.measurementMonth",
+            "column_name": "measurementMonth"
+          },
+          {
+            "original": "s.sensorType",
+            "cleaned": "s.sensorType",
+            "column_name": "sensorType"
+          },
+          {
+            "original": "s.numberOfSensors",
+            "cleaned": "s.numberOfSensors",
+            "column_name": "numberOfSensors"
+          }
+        ],
+        "fqn": "oracle.default.public.dimLocationTable",
+        "qualified_name": "oracle.default.public.dimLocationTable",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='dimLocationTable']"
+      },
       "context": {},
-      "id": "table::("
+      "id": "table::dimLocationTable"
+    },
+    {
+      "node_type": "table",
+      "name": "dimPurposeTable",
+      "properties": {
+        "create_statement": "CREATE TABLE dimPurposeTable (\n    purposeID INTEGER GENERATED ALWAYS AS IDENTITY,\n    samplingPurpose VARCHAR2(255),\n    CONSTRAINT pk_purposeID PRIMARY KEY (purposeID)\n    );",
+        "table_source": "CREATE TABLE statement",
+        "type_mapping": {
+          "columns": [
+            {
+              "oracle_native_type": "INTEGER GENERATED ALWAYS AS IDENTITY",
+              "parsed_type_info": {
+                "base_type": "INTEGER"
+              },
+              "canonical_type": "INTEGER",
+              "target_types": {
+                "sql_server": "int",
+                "postgresql": "integer",
+                "mysql": "int"
+              },
+              "type_precision": null,
+              "type_scale": null,
+              "type_length": null,
+              "nullable": null,
+              "default_value": null,
+              "conversion_confidence": 1.0,
+              "potential_issues": [],
+              "type_category": "numeric",
+              "supports_indexing": true,
+              "supports_sorting": true,
+              "oracle_specific": false,
+              "column_name": "purposeID"
+            }
+          ],
+          "source_platform": "oracle",
+          "target_platforms": [
+            "sql_server",
+            "postgresql"
+          ],
+          "mapping_confidence": 1.0
+        },
+        "fqn": "oracle.default.public.dimPurposeTable",
+        "qualified_name": "oracle.default.public.dimPurposeTable",
+        "technology": "ORACLE",
+        "supported_platforms": [
+          "sql_server",
+          "postgresql"
+        ],
+        "type_mapping_enabled": true
+      },
+      "context": {},
+      "id": "table::dimPurposeTable"
+    },
+    {
+      "node_type": "table",
+      "name": "dimComplianceTable",
+      "properties": {
+        "create_statement": "CREATE TABLE dimComplianceTable (\n    complianceID INTEGER GENERATED ALWAYS AS IDENTITY,\n    sampleCompliance INTEGER,\n    CONSTRAINT pk_complianceID PRIMARY KEY (complianceID)\n    );",
+        "table_source": "CREATE TABLE statement",
+        "type_mapping": {
+          "columns": [
+            {
+              "oracle_native_type": "INTEGER GENERATED ALWAYS AS IDENTITY",
+              "parsed_type_info": {
+                "base_type": "INTEGER"
+              },
+              "canonical_type": "INTEGER",
+              "target_types": {
+                "sql_server": "int",
+                "postgresql": "integer",
+                "mysql": "int"
+              },
+              "type_precision": null,
+              "type_scale": null,
+              "type_length": null,
+              "nullable": null,
+              "default_value": null,
+              "conversion_confidence": 1.0,
+              "potential_issues": [],
+              "type_category": "numeric",
+              "supports_indexing": true,
+              "supports_sorting": true,
+              "oracle_specific": false,
+              "column_name": "complianceID"
+            },
+            {
+              "oracle_native_type": "INTEGER",
+              "parsed_type_info": {
+                "base_type": "INTEGER"
+              },
+              "canonical_type": "INTEGER",
+              "target_types": {
+                "sql_server": "int",
+                "postgresql": "integer",
+                "mysql": "int"
+              },
+              "type_precision": null,
+              "type_scale": null,
+              "type_length": null,
+              "nullable": null,
+              "default_value": null,
+              "conversion_confidence": 1.0,
+              "potential_issues": [],
+              "type_category": "numeric",
+              "supports_indexing": true,
+              "supports_sorting": true,
+              "oracle_specific": false,
+              "column_name": "sampleCompliance"
+            }
+          ],
+          "source_platform": "oracle",
+          "target_platforms": [
+            "sql_server",
+            "postgresql"
+          ],
+          "mapping_confidence": 1.0
+        },
+        "fqn": "oracle.default.public.dimComplianceTable",
+        "qualified_name": "oracle.default.public.dimComplianceTable",
+        "technology": "ORACLE",
+        "supported_platforms": [
+          "sql_server",
+          "postgresql"
+        ],
+        "type_mapping_enabled": true
+      },
+      "context": {},
+      "id": "table::dimComplianceTable"
+    },
+    {
+      "node_type": "table",
+      "name": "dimSampleTable",
+      "properties": {
+        "create_statement": "CREATE TABLE dimSampleTable (\n    sampleID INTEGER GENERATED ALWAYS AS IDENTITY,\n    samplingMaterial VARCHAR2(255),\n    CONSTRAINT pk_sampleID PRIMARY KEY (sampleID)\n    );",
+        "table_source": "CREATE TABLE statement",
+        "type_mapping": {
+          "columns": [
+            {
+              "oracle_native_type": "INTEGER GENERATED ALWAYS AS IDENTITY",
+              "parsed_type_info": {
+                "base_type": "INTEGER"
+              },
+              "canonical_type": "INTEGER",
+              "target_types": {
+                "sql_server": "int",
+                "postgresql": "integer",
+                "mysql": "int"
+              },
+              "type_precision": null,
+              "type_scale": null,
+              "type_length": null,
+              "nullable": null,
+              "default_value": null,
+              "conversion_confidence": 1.0,
+              "potential_issues": [],
+              "type_category": "numeric",
+              "supports_indexing": true,
+              "supports_sorting": true,
+              "oracle_specific": false,
+              "column_name": "sampleID"
+            }
+          ],
+          "source_platform": "oracle",
+          "target_platforms": [
+            "sql_server",
+            "postgresql"
+          ],
+          "mapping_confidence": 1.0
+        },
+        "fqn": "oracle.default.public.dimSampleTable",
+        "qualified_name": "oracle.default.public.dimSampleTable",
+        "technology": "ORACLE",
+        "supported_platforms": [
+          "sql_server",
+          "postgresql"
+        ],
+        "type_mapping_enabled": true
+      },
+      "context": {},
+      "id": "table::dimSampleTable"
+    },
+    {
+      "node_type": "table",
+      "name": "dimSensorTable",
+      "properties": {
+        "table_source": "referenced",
+        "schema": "",
+        "operation_type": "SELECT",
+        "sql_semantics": {
+          "joins": [
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            },
+            {
+              "left_table": {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              "right_table": {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              "join_type": "INNER JOIN"
+            }
+          ],
+          "tables": [
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            },
+            {
+              "name": "factMeasurementsTable",
+              "alias": "f",
+              "schema": null
+            },
+            {
+              "name": "dimSensorTable",
+              "alias": "s",
+              "schema": null
+            },
+            {
+              "name": "dimTimeTable",
+              "alias": "t",
+              "schema": null
+            }
+          ],
+          "columns": [
+            {
+              "expression": "s.measurementMonth",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "measurementMonth"
+            },
+            {
+              "expression": "s.sensorType",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "sensorType"
+            },
+            {
+              "expression": "s.numberOfSensors",
+              "alias": null,
+              "source_table": "dimSensorTable",
+              "source_alias": "s",
+              "column_name": "numberOfSensors"
+            }
+          ],
+          "where_clause": "s.sensorType = 'pH'"
+        },
+        "cleaned_expressions": [
+          {
+            "original": "s.measurementMonth",
+            "cleaned": "s.measurementMonth",
+            "column_name": "measurementMonth"
+          },
+          {
+            "original": "s.sensorType",
+            "cleaned": "s.sensorType",
+            "column_name": "sensorType"
+          },
+          {
+            "original": "s.numberOfSensors",
+            "cleaned": "s.numberOfSensors",
+            "column_name": "numberOfSensors"
+          }
+        ],
+        "fqn": "oracle.default.public.dimSensorTable",
+        "qualified_name": "oracle.default.public.dimSensorTable",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='dimSensorTable']"
+      },
+      "context": {},
+      "id": "table::dimSensorTable"
+    },
+    {
+      "node_type": "table",
+      "name": "dimTimeTable",
+      "properties": {
+        "table_source": "referenced",
+        "fqn": "oracle.default.public.dimTimeTable",
+        "qualified_name": "oracle.default.public.dimTimeTable",
+        "technology": "ORACLE"
+      },
+      "context": {},
+      "id": "table::dimTimeTable"
+    },
+    {
+      "node_type": "table",
+      "name": "factMeasurementsTable",
+      "properties": {
+        "table_source": "referenced",
+        "fqn": "oracle.default.public.factMeasurementsTable",
+        "qualified_name": "oracle.default.public.factMeasurementsTable",
+        "technology": "ORACLE"
+      },
+      "context": {},
+      "id": "table::factMeasurementsTable"
+    },
+    {
+      "node_type": "operation",
+      "name": "anonymous_block",
+      "properties": {
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "operation_subtype": "DATA_FLOW",
+        "sql_statements_count": 5,
+        "block_size": 2609,
+        "task_name": "anonymous_block",
+        "has_explicit_task_name": false,
+        "column_lineage": [
+          {
+            "source_expression": "s.measurementMonth",
+            "cleaned_expression": "s.measurementMonth",
+            "target_column": "measurementMonth",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.sensorType, s.numberOfSensors FROM ( SELECT t.measurementMonth, EXTRACT...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "s.sensorType",
+            "cleaned_expression": "s.sensorType",
+            "target_column": "sensorType",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.sensorType, s.numberOfSensors FROM ( SELECT t.measurementMonth, EXTRACT...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "s.numberOfSensors",
+            "cleaned_expression": "s.numberOfSensors",
+            "target_column": "numberOfSensors",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.sensorType, s.numberOfSensors FROM ( SELECT t.measurementMonth, EXTRACT...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "t.measurementWeek",
+            "cleaned_expression": "t.measurementWeek",
+            "target_column": "measurementWeek",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT t.measurementWeek, s.sensorType, COUNT(measurement) numberOfMeasurements FROM dimSensorTable ...",
+            "source_table": "dimTimeTable",
+            "source_alias": "t"
+          },
+          {
+            "source_expression": "s.sensorType",
+            "cleaned_expression": "s.sensorType",
+            "target_column": "sensorType",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT t.measurementWeek, s.sensorType, COUNT(measurement) numberOfMeasurements FROM dimSensorTable ...",
+            "source_table": "dimSensorTable",
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "COUNT(measurement) numberOfMeasurements",
+            "cleaned_expression": "AGGREGATE_WITH_ALIAS",
+            "target_column": "COUNT(measurement) numberOfMeasurements",
+            "transformation_type": "TRANSFORMED",
+            "sql_statement": "SELECT t.measurementWeek, s.sensorType, COUNT(measurement) numberOfMeasurements FROM dimSensorTable ...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "s.measurementMonth",
+            "cleaned_expression": "s.measurementMonth",
+            "target_column": "measurementMonth",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.measurementLocation, s.numberOfMeasurements FROM ( SELECT t.measurement...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "s.measurementLocation",
+            "cleaned_expression": "s.measurementLocation",
+            "target_column": "measurementLocation",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.measurementLocation, s.numberOfMeasurements FROM ( SELECT t.measurement...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "s.numberOfMeasurements",
+            "cleaned_expression": "s.numberOfMeasurements",
+            "target_column": "numberOfMeasurements",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT s.measurementMonth, s.measurementLocation, s.numberOfMeasurements FROM ( SELECT t.measurement...",
+            "source_table": null,
+            "source_alias": "s"
+          },
+          {
+            "source_expression": "t.measurementYear",
+            "cleaned_expression": "t.measurementYear",
+            "target_column": "measurementYear",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT t.measurementYear, COUNT(measurement) numberOfMeasurements FROM dimSensorTable s INNER JOIN f...",
+            "source_table": "dimTimeTable",
+            "source_alias": "t"
+          },
+          {
+            "source_expression": "COUNT(measurement) numberOfMeasurements",
+            "cleaned_expression": "AGGREGATE_WITH_ALIAS",
+            "target_column": "COUNT(measurement) numberOfMeasurements",
+            "transformation_type": "TRANSFORMED",
+            "sql_statement": "SELECT t.measurementYear, COUNT(measurement) numberOfMeasurements FROM dimSensorTable s INNER JOIN f...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "t.measurementYear",
+            "cleaned_expression": "t.measurementYear",
+            "target_column": "measurementYear",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT t.measurementYear, l.measurementLocation, ROUND(AVG(measurement), 2) averageValuesOfNitrate F...",
+            "source_table": "dimTimeTable",
+            "source_alias": "t"
+          },
+          {
+            "source_expression": "l.measurementLocation",
+            "cleaned_expression": "l.measurementLocation",
+            "target_column": "measurementLocation",
+            "transformation_type": "COMPUTED",
+            "sql_statement": "SELECT t.measurementYear, l.measurementLocation, ROUND(AVG(measurement), 2) averageValuesOfNitrate F...",
+            "source_table": "dimLocationTable",
+            "source_alias": "l"
+          },
+          {
+            "source_expression": "ROUND(AVG(measurement)",
+            "cleaned_expression": "ROUND(AVG(measurement)",
+            "target_column": "ROUND(AVG(measurement)",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT t.measurementYear, l.measurementLocation, ROUND(AVG(measurement), 2) averageValuesOfNitrate F...",
+            "source_table": null,
+            "source_alias": null
+          },
+          {
+            "source_expression": "2) averageValuesOfNitrate",
+            "cleaned_expression": "2) averageValuesOfNitrate",
+            "target_column": "2) averageValuesOfNitrate",
+            "transformation_type": "DIRECT",
+            "sql_statement": "SELECT t.measurementYear, l.measurementLocation, ROUND(AVG(measurement), 2) averageValuesOfNitrate F...",
+            "source_table": null,
+            "source_alias": null
+          }
+        ],
+        "total_column_mappings": 15,
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "source_file_type": "sql",
+        "technology": "ORACLE",
+        "xml_path": "//plsql_operation[@name='anonymous_block']",
+        "sql_semantics": [
+          {
+            "original_query": "SELECT s.measurementMonth, s.sensorType, s.numberOfSensors FROM ( SELECT t.measurementMonth, EXTRACT(MONTH FROM TO_DATE(measurementMonth, 'MM')) monthNumber, s.sensorType, COUNT(measurement) numberOfSensors FROM dimSensorTable s INNER JOIN factMeasurementsTable f ON s.sensorID = f.sensorID INNER JOIN dimTimeTable t ON f.timeID = t.timeID GROUP BY s.sensorType, t.measurementMonth ) s ORDER BY s.monthNumber, s.sensorType",
+            "tables": [
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null,
+                "full_name": "factMeasurementsTable"
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "condition": "s.sensorID = f.sensorID",
+                "raw_condition": "s.sensorID = f.sensorID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null,
+                  "full_name": "dimTimeTable"
+                },
+                "condition": "f.timeID = t.timeID",
+                "raw_condition": "f.timeID = t.timeID"
+              }
+            ],
+            "columns": [
+              {
+                "expression": "s.measurementMonth",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "measurementMonth",
+                "effective_name": "measurementMonth"
+              },
+              {
+                "expression": "s.sensorType",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "sensorType",
+                "effective_name": "sensorType"
+              },
+              {
+                "expression": "s.numberOfSensors",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "numberOfSensors",
+                "effective_name": "numberOfSensors"
+              }
+            ],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 2,
+              "join_count": 2,
+              "column_count": 3,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": true,
+              "has_inline_views": false,
+              "join_types": [
+                "INNER JOIN"
+              ]
+            }
+          },
+          {
+            "original_query": "SELECT t.measurementWeek, s.sensorType, COUNT(measurement) numberOfMeasurements FROM dimSensorTable s INNER JOIN factMeasurementsTable f ON s.sensorID = f.sensorID INNER JOIN dimTimeTable t ON f.timeID = t.timeID GROUP BY s.sensorType, t.measurementWeek ORDER BY t.measurementWeek, s.sensorType",
+            "tables": [
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null,
+                "full_name": "dimSensorTable"
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null,
+                "full_name": "factMeasurementsTable"
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null,
+                  "full_name": "dimSensorTable"
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "condition": "s.sensorID = f.sensorID",
+                "raw_condition": "s.sensorID = f.sensorID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null,
+                  "full_name": "dimSensorTable"
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null,
+                  "full_name": "dimTimeTable"
+                },
+                "condition": "f.timeID = t.timeID",
+                "raw_condition": "f.timeID = t.timeID"
+              }
+            ],
+            "columns": [
+              {
+                "expression": "t.measurementWeek",
+                "alias": null,
+                "source_table": "dimTimeTable",
+                "source_alias": "t",
+                "column_name": "measurementWeek",
+                "effective_name": "measurementWeek"
+              },
+              {
+                "expression": "s.sensorType",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "sensorType",
+                "effective_name": "sensorType"
+              },
+              {
+                "expression": "COUNT(measurement) numberOfMeasurements",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "COUNT(measurement) numberOfMeasurements",
+                "effective_name": "COUNT(measurement) numberOfMeasurements"
+              }
+            ],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 3,
+              "join_count": 2,
+              "column_count": 3,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": true,
+              "has_inline_views": false,
+              "join_types": [
+                "INNER JOIN"
+              ]
+            }
+          },
+          {
+            "original_query": "SELECT s.measurementMonth, s.measurementLocation, s.numberOfMeasurements FROM ( SELECT t.measurementMonth, l.measurementLocation, EXTRACT(MONTH FROM TO_DATE(measurementMonth, 'MM')) monthNumber, COUNT(measurement) numberOfMeasurements FROM dimLocationTable l INNER JOIN factMeasurementsTable f ON l.locationID = f.locationID INNER JOIN dimTimeTable t ON f.timeID = t.timeID GROUP BY l.measurementLocation, t.measurementMonth ) s ORDER BY s.monthNumber, s.measurementLocation",
+            "tables": [
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null,
+                "full_name": "factMeasurementsTable"
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "condition": "l.locationID = f.locationID",
+                "raw_condition": "l.locationID = f.locationID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null,
+                  "full_name": "dimTimeTable"
+                },
+                "condition": "f.timeID = t.timeID",
+                "raw_condition": "f.timeID = t.timeID"
+              }
+            ],
+            "columns": [
+              {
+                "expression": "s.measurementMonth",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "measurementMonth",
+                "effective_name": "measurementMonth"
+              },
+              {
+                "expression": "s.measurementLocation",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "measurementLocation",
+                "effective_name": "measurementLocation"
+              },
+              {
+                "expression": "s.numberOfMeasurements",
+                "alias": null,
+                "source_table": null,
+                "source_alias": "s",
+                "column_name": "numberOfMeasurements",
+                "effective_name": "numberOfMeasurements"
+              }
+            ],
+            "inline_views": [],
+            "where_clause": null,
+            "migration_metadata": {
+              "table_count": 2,
+              "join_count": 2,
+              "column_count": 3,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": true,
+              "has_inline_views": false,
+              "join_types": [
+                "INNER JOIN"
+              ]
+            }
+          },
+          {
+            "original_query": "SELECT t.measurementYear, COUNT(measurement) numberOfMeasurements FROM dimSensorTable s INNER JOIN factMeasurementsTable f ON s.sensorID = f.sensorID INNER JOIN dimTimeTable t ON f.timeID = t.timeID WHERE s.sensorType = 'pH' GROUP BY t.measurementYear ORDER BY t.measurementYear",
+            "tables": [
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null,
+                "full_name": "dimSensorTable"
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null,
+                "full_name": "factMeasurementsTable"
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null,
+                  "full_name": "dimSensorTable"
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "condition": "s.sensorID = f.sensorID",
+                "raw_condition": "s.sensorID = f.sensorID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null,
+                  "full_name": "dimSensorTable"
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null,
+                  "full_name": "dimTimeTable"
+                },
+                "condition": "f.timeID = t.timeID",
+                "raw_condition": "f.timeID = t.timeID"
+              }
+            ],
+            "columns": [
+              {
+                "expression": "t.measurementYear",
+                "alias": null,
+                "source_table": "dimTimeTable",
+                "source_alias": "t",
+                "column_name": "measurementYear",
+                "effective_name": "measurementYear"
+              },
+              {
+                "expression": "COUNT(measurement) numberOfMeasurements",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "COUNT(measurement) numberOfMeasurements",
+                "effective_name": "COUNT(measurement) numberOfMeasurements"
+              }
+            ],
+            "inline_views": [],
+            "where_clause": "s.sensorType = 'pH'",
+            "migration_metadata": {
+              "table_count": 3,
+              "join_count": 2,
+              "column_count": 2,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": true,
+              "has_inline_views": false,
+              "join_types": [
+                "INNER JOIN"
+              ]
+            }
+          },
+          {
+            "original_query": "SELECT t.measurementYear, l.measurementLocation, ROUND(AVG(measurement), 2) averageValuesOfNitrate FROM dimLocationTable l INNER JOIN factMeasurementsTable f ON l.locationID = f.locationID INNER JOIN dimSensorTable s ON f.sensorID = s.sensorID INNER JOIN dimTimeTable t ON f.timeID = t.timeID WHERE s.sensorType = 'Nitrate-N' GROUP BY l.measurementLocation, t.measurementYear ORDER BY t.measurementYear, l.measurementLocation",
+            "tables": [
+              {
+                "name": "dimLocationTable",
+                "alias": "l",
+                "schema": null,
+                "full_name": "dimLocationTable"
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null,
+                "full_name": "factMeasurementsTable"
+              },
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null,
+                "full_name": "dimSensorTable"
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null,
+                "full_name": "dimTimeTable"
+              }
+            ],
+            "joins": [
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimLocationTable",
+                  "alias": "l",
+                  "schema": null,
+                  "full_name": "dimLocationTable"
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null,
+                  "full_name": "factMeasurementsTable"
+                },
+                "condition": "l.locationID = f.locationID",
+                "raw_condition": "l.locationID = f.locationID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimLocationTable",
+                  "alias": "l",
+                  "schema": null,
+                  "full_name": "dimLocationTable"
+                },
+                "right_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null,
+                  "full_name": "dimSensorTable"
+                },
+                "condition": "f.sensorID = s.sensorID",
+                "raw_condition": "f.sensorID = s.sensorID"
+              },
+              {
+                "join_type": "INNER JOIN",
+                "left_table": {
+                  "name": "dimLocationTable",
+                  "alias": "l",
+                  "schema": null,
+                  "full_name": "dimLocationTable"
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null,
+                  "full_name": "dimTimeTable"
+                },
+                "condition": "f.timeID = t.timeID",
+                "raw_condition": "f.timeID = t.timeID"
+              }
+            ],
+            "columns": [
+              {
+                "expression": "t.measurementYear",
+                "alias": null,
+                "source_table": "dimTimeTable",
+                "source_alias": "t",
+                "column_name": "measurementYear",
+                "effective_name": "measurementYear"
+              },
+              {
+                "expression": "l.measurementLocation",
+                "alias": null,
+                "source_table": "dimLocationTable",
+                "source_alias": "l",
+                "column_name": "measurementLocation",
+                "effective_name": "measurementLocation"
+              },
+              {
+                "expression": "ROUND(AVG(measurement)",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "ROUND(AVG(measurement)",
+                "effective_name": "ROUND(AVG(measurement)"
+              },
+              {
+                "expression": "2) averageValuesOfNitrate",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "2) averageValuesOfNitrate",
+                "effective_name": "2) averageValuesOfNitrate"
+              }
+            ],
+            "inline_views": [],
+            "where_clause": "s.sensorType = 'Nitrate-N'",
+            "migration_metadata": {
+              "table_count": 4,
+              "join_count": 3,
+              "column_count": 4,
+              "inline_view_count": 0,
+              "has_aliases": false,
+              "has_joins": true,
+              "has_inline_views": false,
+              "join_types": [
+                "INNER JOIN"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {},
+      "id": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+    },
+    {
+      "node_type": "pipeline",
+      "name": "3. Query the data warehouse to get insights and answers to project questions",
+      "properties": {
+        "file": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "technology": "ORACLE",
+        "fqn": "oracle/3. Query the data warehouse to get insights and answers to project questions",
+        "qualified_name": "oracle/3. Query the data warehouse to get insights and answers to project questions",
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "source_file_type": "sql",
+        "xml_path": "//plsql_operation[@name='3. Query the data warehouse to get insights and answers to project questions']",
+        "execution_priority": 1,
+        "upstream_dependencies": [],
+        "downstream_dependencies": [],
+        "shared_tables_used": [
+          "table::dimLocationTable",
+          "table::dimSensorTable",
+          "table::dimTimeTable",
+          "table::factMeasurementsTable"
+        ],
+        "shared_connections_used": [],
+        "cross_package_analysis_complete": true
+      },
+      "context": {},
+      "id": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql"
+    },
+    {
+      "node_type": "operation",
+      "name": "ROUND",
+      "properties": {
+        "technology": "ORACLE"
+      },
+      "context": {},
+      "id": "plsql::ROUND"
+    },
+    {
+      "node_type": "operation",
+      "name": "AVG",
+      "properties": {
+        "technology": "ORACLE"
+      },
+      "context": {},
+      "id": "plsql::AVG"
     }
   ],
   "links": [
     {
-      "relation": "writes_to",
+      "relation": "reads_from",
       "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "table::hr"
-    },
-    {
-      "relation": "writes_to",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "table::HR"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "plsql::varchar"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "plsql::REGEXP_LIKE"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "plsql::TRUNC"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql::anonymous_block",
-      "target": "plsql::MONTHS_BETWEEN"
+      "source": "plsql::Setup. PLSQL code to create the staging table.sql::table_creation_task",
+      "target": "table::dw_water_quality"
     },
     {
       "relation": "contains",
-      "properties": {},
-      "source": "plsql::data_cleaning.sql",
-      "target": "plsql::data_cleaning.sql::anonymous_block"
+      "properties": {
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\Setup. PLSQL code to create the staging table.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
+      },
+      "source": "plsql::Setup. PLSQL code to create the staging table.sql",
+      "target": "plsql::Setup. PLSQL code to create the staging table.sql::table_creation_task"
     },
     {
       "relation": "reads_from",
       "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "table::hr"
+      "source": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::data_analysis_task",
+      "target": "table::dw_water_quality"
     },
     {
       "relation": "depends_on",
       "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::count"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::min"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::max"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::round"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::avg"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::datediff"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::curdate"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::sum"
-    },
-    {
-      "relation": "depends_on",
-      "properties": {},
-      "source": "plsql::data_generation.sql::anonymous_block",
-      "target": "plsql::year"
+      "source": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::data_analysis_task",
+      "target": "plsql::COUNT"
     },
     {
       "relation": "contains",
+      "properties": {
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
+      },
+      "source": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql",
+      "target": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::data_analysis_task"
+    },
+    {
+      "relation": "reads_from",
       "properties": {},
-      "source": "plsql::data_generation.sql",
-      "target": "plsql::data_generation.sql::anonymous_block"
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimLocationTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimPurposeTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimComplianceTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimSampleTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimSensorTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dimTimeTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
+      },
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::factMeasurementsTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
+      },
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+      "target": "table::dw_water_quality"
+    },
+    {
+      "relation": "contains",
+      "properties": {
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
+      },
+      "source": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+      "target": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "l.locationID = f.locationID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::dimLocationTable",
+      "target": "table::factMeasurementsTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "f.sensorID = s.sensorID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::dimLocationTable",
+      "target": "table::dimSensorTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "f.timeID = t.timeID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::dimLocationTable",
+      "target": "table::dimTimeTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "s.sensorID = f.sensorID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::dimSensorTable",
+      "target": "table::factMeasurementsTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "f.timeID = t.timeID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::dimSensorTable",
+      "target": "table::dimTimeTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "l.locationID = f.locationID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::factMeasurementsTable",
+      "target": "table::factMeasurementsTable"
+    },
+    {
+      "relation": "references",
+      "properties": {
+        "join_type": "INNER JOIN",
+        "condition": "f.timeID = t.timeID",
+        "relationship_type": "join_relationship"
+      },
+      "source": "table::factMeasurementsTable",
+      "target": "table::dimTimeTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "table::dimLocationTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "table::dimSensorTable"
     },
     {
       "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "plsql::COUNT"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "plsql::ROUND"
+    },
+    {
+      "relation": "depends_on",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "plsql::AVG"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "table::factMeasurementsTable"
+    },
+    {
+      "relation": "reads_from",
+      "properties": {},
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block",
+      "target": "table::dimTimeTable"
+    },
+    {
+      "relation": "contains",
       "properties": {
-        "dependency_type": "data_flow",
-        "shared_resource": "table::hr",
-        "shared_resource_name": "hr",
-        "description": "plsql::data_cleaning.sql must complete before plsql::data_generation.sql (via hr)"
+        "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+        "derivation_method": "sql_parsing",
+        "confidence_level": "high",
+        "technology": "ORACLE",
+        "xml_location": "//plsql_statement",
+        "context_info": {
+          "sql_statement": "PL/SQL operation",
+          "sql_statement_length": 16,
+          "component_type": "PL/SQL Parser",
+          "property_name": "relation_detection"
+        }
       },
-      "source": "plsql::data_generation.sql",
-      "target": "plsql::data_cleaning.sql"
+      "source": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+      "target": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
     }
   ]
 }

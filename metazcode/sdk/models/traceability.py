@@ -19,7 +19,8 @@ class SourceContext:
         source_file_type: str = "dtsx",
         xml_path: Optional[str] = None,
         line_number: Optional[int] = None,
-        parent_package: Optional[str] = None
+        parent_package: Optional[str] = None,
+        technology: str = "SSIS"
     ) -> Dict[str, Any]:
         """
         Create standardized traceability properties for nodes.
@@ -30,6 +31,7 @@ class SourceContext:
             xml_path: XPath to the element in the XML file
             line_number: Line number in the source file
             parent_package: Name of parent package for cross-references
+            technology: Technology type (SSIS, ORACLE, etc.)
             
         Returns:
             Dictionary with standardized traceability properties
@@ -37,7 +39,7 @@ class SourceContext:
         context = {
             "source_file_path": str(Path(source_file_path).resolve()),
             "source_file_type": source_file_type,
-            "technology": "SSIS"
+            "technology": technology
         }
         
         if xml_path:
@@ -55,7 +57,8 @@ class SourceContext:
         derivation_method: str,
         xml_location: Optional[str] = None,
         context_info: Optional[Dict[str, Any]] = None,
-        confidence_level: str = "high"
+        confidence_level: str = "high",
+        technology: str = "SSIS"
     ) -> Dict[str, Any]:
         """
         Create standardized traceability properties for edges.
@@ -67,6 +70,7 @@ class SourceContext:
             xml_location: XPath to the XML element that defined this relationship
             context_info: Additional context about how the relationship was derived
             confidence_level: Confidence in the relationship (high|medium|low)
+            technology: Technology type (SSIS, ORACLE, etc.)
             
         Returns:
             Dictionary with standardized traceability properties
@@ -75,7 +79,7 @@ class SourceContext:
             "source_file_path": str(Path(source_file_path).resolve()),
             "derivation_method": derivation_method,
             "confidence_level": confidence_level,
-            "technology": "SSIS"
+            "technology": technology
         }
         
         if xml_location:

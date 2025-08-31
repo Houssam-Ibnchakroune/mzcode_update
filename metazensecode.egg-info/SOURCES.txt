@@ -24,12 +24,11 @@ metazcode/sdk/indexing/index_builder.py
 metazcode/sdk/indexing/ssis_enhanced_index.py
 metazcode/sdk/ingestion/__init__.py
 metazcode/sdk/ingestion/ingestion_tool.py
-metazcode/sdk/ingestion/plsql_loader.py
 metazcode/sdk/ingestion/plsql/__init__.py
-metazcode/sdk/ingestion/plsql/loader.py
-metazcode/sdk/ingestion/plsql/parser.py
 metazcode/sdk/ingestion/plsql/plsql_loader.py
 metazcode/sdk/ingestion/plsql/plsql_parser.py
+metazcode/sdk/ingestion/plsql/sql_semantics.py
+metazcode/sdk/ingestion/plsql/type_mapping.py
 metazcode/sdk/ingestion/ssis/__init__.py
 metazcode/sdk/ingestion/ssis/sql_semantics.py
 metazcode/sdk/ingestion/ssis/ssis_loader.py

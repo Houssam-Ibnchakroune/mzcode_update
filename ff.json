@@ -1,0 +1,827 @@
+{
+  "packages_analyzed": 4,
+  "shared_resources": {
+    "tables": 5,
+    "connections": 0,
+    "parameters": 0
+  },
+  "data_dependencies": 0,
+  "execution_chains": 1,
+  "cross_package_edges_added": 0,
+  "contention_risks": {
+    "high_risk_connections": [],
+    "high_contention_tables": [],
+    "risk_summary": {
+      "total_shared_connections": 0,
+      "high_risk_connections": 0,
+      "total_shared_tables": 5,
+      "high_contention_tables": 0
+    }
+  },
+  "detailed_analysis": {
+    "shared_tables": {
+      "table::dw_water_quality": {
+        "table_name": "dw_water_quality",
+        "packages": [
+          "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+          "plsql::Setup. PLSQL code to create the staging table.sql"
+        ],
+        "readers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+          "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::data_analysis_task",
+          "plsql::Setup. PLSQL code to create the staging table.sql::table_creation_task"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 3,
+        "properties": {
+          "table_source": "referenced",
+          "schema": "",
+          "operation_type": "SELECT",
+          "sql_semantics": {
+            "joins": [
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimLocationTable",
+                  "alias": "l",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimPurposeTable",
+                  "alias": "p",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimComplianceTable",
+                  "alias": "c",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimSampleTable",
+                  "alias": "sm",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "dw_water_quality",
+                  "alias": null,
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              }
+            ],
+            "tables": [
+              {
+                "name": "dw_water_quality",
+                "alias": null,
+                "schema": null
+              },
+              {
+                "name": "dimLocationTable",
+                "alias": "l",
+                "schema": null
+              },
+              {
+                "name": "dimPurposeTable",
+                "alias": "p",
+                "schema": null
+              },
+              {
+                "name": "dimComplianceTable",
+                "alias": "c",
+                "schema": null
+              },
+              {
+                "name": "dimSampleTable",
+                "alias": "sm",
+                "schema": null
+              },
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              }
+            ],
+            "columns": [
+              {
+                "expression": "DISTINCT samplesamplingPoint",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "DISTINCT samplesamplingPoint"
+              },
+              {
+                "expression": "samplesamplingPointnotation",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "samplesamplingPointnotation"
+              },
+              {
+                "expression": "samplesamplingPointlabel",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "samplesamplingPointlabel"
+              },
+              {
+                "expression": "samplesamplingPointeasting",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "samplesamplingPointeasting"
+              },
+              {
+                "expression": "samplesamplingPointnorthing",
+                "alias": null,
+                "source_table": null,
+                "source_alias": null,
+                "column_name": "samplesamplingPointnorthing"
+              }
+            ],
+            "where_clause": null
+          },
+          "cleaned_expressions": [
+            {
+              "original": "DISTINCT samplesamplingPoint",
+              "cleaned": "DISTINCT samplesamplingPoint",
+              "column_name": "DISTINCT samplesamplingPoint"
+            },
+            {
+              "original": "samplesamplingPointnotation",
+              "cleaned": "samplesamplingPointnotation",
+              "column_name": "samplesamplingPointnotation"
+            },
+            {
+              "original": "samplesamplingPointlabel",
+              "cleaned": "samplesamplingPointlabel",
+              "column_name": "samplesamplingPointlabel"
+            },
+            {
+              "original": "samplesamplingPointeasting",
+              "cleaned": "samplesamplingPointeasting",
+              "column_name": "samplesamplingPointeasting"
+            },
+            {
+              "original": "samplesamplingPointnorthing",
+              "cleaned": "samplesamplingPointnorthing",
+              "column_name": "samplesamplingPointnorthing"
+            }
+          ],
+          "fqn": "oracle.default.public.dw_water_quality",
+          "qualified_name": "oracle.default.public.dw_water_quality",
+          "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+          "source_file_type": "sql",
+          "technology": "ORACLE",
+          "xml_path": "//plsql_operation[@name='dw_water_quality']"
+        }
+      },
+      "table::dimLocationTable": {
+        "table_name": "dimLocationTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 2,
+        "properties": {
+          "table_source": "referenced",
+          "schema": "",
+          "operation_type": "SELECT",
+          "sql_semantics": {
+            "joins": [
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              }
+            ],
+            "tables": [
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              }
+            ],
+            "columns": [
+              {
+                "expression": "s.measurementMonth",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "measurementMonth"
+              },
+              {
+                "expression": "s.sensorType",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "sensorType"
+              },
+              {
+                "expression": "s.numberOfSensors",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "numberOfSensors"
+              }
+            ],
+            "where_clause": "s.sensorType = 'pH'"
+          },
+          "cleaned_expressions": [
+            {
+              "original": "s.measurementMonth",
+              "cleaned": "s.measurementMonth",
+              "column_name": "measurementMonth"
+            },
+            {
+              "original": "s.sensorType",
+              "cleaned": "s.sensorType",
+              "column_name": "sensorType"
+            },
+            {
+              "original": "s.numberOfSensors",
+              "cleaned": "s.numberOfSensors",
+              "column_name": "numberOfSensors"
+            }
+          ],
+          "fqn": "oracle.default.public.dimLocationTable",
+          "qualified_name": "oracle.default.public.dimLocationTable",
+          "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+          "source_file_type": "sql",
+          "technology": "ORACLE",
+          "xml_path": "//plsql_operation[@name='dimLocationTable']"
+        }
+      },
+      "table::dimSensorTable": {
+        "table_name": "dimSensorTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 2,
+        "properties": {
+          "table_source": "referenced",
+          "schema": "",
+          "operation_type": "SELECT",
+          "sql_semantics": {
+            "joins": [
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimSensorTable",
+                  "alias": "s",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              },
+              {
+                "left_table": {
+                  "name": "factMeasurementsTable",
+                  "alias": "f",
+                  "schema": null
+                },
+                "right_table": {
+                  "name": "dimTimeTable",
+                  "alias": "t",
+                  "schema": null
+                },
+                "join_type": "INNER JOIN"
+              }
+            ],
+            "tables": [
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              },
+              {
+                "name": "factMeasurementsTable",
+                "alias": "f",
+                "schema": null
+              },
+              {
+                "name": "dimSensorTable",
+                "alias": "s",
+                "schema": null
+              },
+              {
+                "name": "dimTimeTable",
+                "alias": "t",
+                "schema": null
+              }
+            ],
+            "columns": [
+              {
+                "expression": "s.measurementMonth",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "measurementMonth"
+              },
+              {
+                "expression": "s.sensorType",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "sensorType"
+              },
+              {
+                "expression": "s.numberOfSensors",
+                "alias": null,
+                "source_table": "dimSensorTable",
+                "source_alias": "s",
+                "column_name": "numberOfSensors"
+              }
+            ],
+            "where_clause": "s.sensorType = 'pH'"
+          },
+          "cleaned_expressions": [
+            {
+              "original": "s.measurementMonth",
+              "cleaned": "s.measurementMonth",
+              "column_name": "measurementMonth"
+            },
+            {
+              "original": "s.sensorType",
+              "cleaned": "s.sensorType",
+              "column_name": "sensorType"
+            },
+            {
+              "original": "s.numberOfSensors",
+              "cleaned": "s.numberOfSensors",
+              "column_name": "numberOfSensors"
+            }
+          ],
+          "fqn": "oracle.default.public.dimSensorTable",
+          "qualified_name": "oracle.default.public.dimSensorTable",
+          "source_file_path": "C:\\Users\\hibnc\\Documents\\stage3\\MZCODE\\temp\\Water-Quality-DW-on-Oracle-Database-main\\SQL queries and PLSQL codes\\3. Query the data warehouse to get insights and answers to project questions.sql",
+          "source_file_type": "sql",
+          "technology": "ORACLE",
+          "xml_path": "//plsql_operation[@name='dimSensorTable']"
+        }
+      },
+      "table::dimTimeTable": {
+        "table_name": "dimTimeTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 2,
+        "properties": {
+          "table_source": "referenced",
+          "fqn": "oracle.default.public.dimTimeTable",
+          "qualified_name": "oracle.default.public.dimTimeTable",
+          "technology": "ORACLE"
+        }
+      },
+      "table::factMeasurementsTable": {
+        "table_name": "factMeasurementsTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::cursor_processing_c_location",
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [],
+        "is_integration_point": false,
+        "package_count": 2,
+        "properties": {
+          "table_source": "referenced",
+          "fqn": "oracle.default.public.factMeasurementsTable",
+          "qualified_name": "oracle.default.public.factMeasurementsTable",
+          "technology": "ORACLE"
+        }
+      }
+    },
+    "shared_connections": {},
+    "shared_parameters": {},
+    "data_dependencies": [],
+    "execution_order": [
+      [
+        "plsql::Setup. PLSQL code to create the staging table.sql",
+        "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "plsql::3. Query the data warehouse to get insights and answers to project questions.sql"
+      ]
+    ]
+  }
+}

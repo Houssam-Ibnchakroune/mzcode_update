@@ -1,0 +1,133 @@
+{
+  "packages_analyzed": 4,
+  "shared_resources": {
+    "tables": 3,
+    "connections": 0,
+    "parameters": 0
+  },
+  "data_dependencies": 4,
+  "execution_chains": 3,
+  "cross_package_edges_added": 4,
+  "contention_risks": {
+    "high_risk_connections": [],
+    "high_contention_tables": [
+      {
+        "table": "dw_water_quality",
+        "package_count": 3,
+        "packages": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+          "plsql::Setup. PLSQL code to create the staging table.sql",
+          "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql"
+        ]
+      }
+    ],
+    "risk_summary": {
+      "total_shared_connections": 0,
+      "high_risk_connections": 0,
+      "total_shared_tables": 3,
+      "high_contention_tables": 1
+    }
+  },
+  "detailed_analysis": {
+    "shared_tables": {
+      "table::dw_water_quality": {
+        "table_name": "dw_water_quality",
+        "packages": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+          "plsql::Setup. PLSQL code to create the staging table.sql",
+          "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql"
+        ],
+        "readers": [
+          "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql::anonymous_block",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::anonymous_block"
+        ],
+        "writers": [
+          "plsql::Setup. PLSQL code to create the staging table.sql::anonymous_block"
+        ],
+        "is_integration_point": true,
+        "package_count": 3,
+        "properties": {}
+      },
+      "table::dimLocationTable": {
+        "table_name": "dimLocationTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::anonymous_block"
+        ],
+        "is_integration_point": true,
+        "package_count": 2,
+        "properties": {}
+      },
+      "table::dimSensorTable": {
+        "table_name": "dimSensorTable",
+        "packages": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+        ],
+        "readers": [
+          "plsql::3. Query the data warehouse to get insights and answers to project questions.sql::anonymous_block"
+        ],
+        "writers": [
+          "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql::anonymous_block"
+        ],
+        "is_integration_point": true,
+        "package_count": 2,
+        "properties": {}
+      }
+    },
+    "shared_connections": {},
+    "shared_parameters": {},
+    "data_dependencies": [
+      {
+        "source_package": "plsql::Setup. PLSQL code to create the staging table.sql",
+        "target_package": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "dependency_type": "data_flow",
+        "shared_resource": "table::dw_water_quality",
+        "shared_resource_name": "dw_water_quality",
+        "description": "plsql::Setup. PLSQL code to create the staging table.sql must complete before plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql (via dw_water_quality)"
+      },
+      {
+        "source_package": "plsql::Setup. PLSQL code to create the staging table.sql",
+        "target_package": "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "dependency_type": "data_flow",
+        "shared_resource": "table::dw_water_quality",
+        "shared_resource_name": "dw_water_quality",
+        "description": "plsql::Setup. PLSQL code to create the staging table.sql must complete before plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql (via dw_water_quality)"
+      },
+      {
+        "source_package": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "target_package": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+        "dependency_type": "data_flow",
+        "shared_resource": "table::dimLocationTable",
+        "shared_resource_name": "dimLocationTable",
+        "description": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql must complete before plsql::3. Query the data warehouse to get insights and answers to project questions.sql (via dimLocationTable)"
+      },
+      {
+        "source_package": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql",
+        "target_package": "plsql::3. Query the data warehouse to get insights and answers to project questions.sql",
+        "dependency_type": "data_flow",
+        "shared_resource": "table::dimSensorTable",
+        "shared_resource_name": "dimSensorTable",
+        "description": "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql must complete before plsql::3. Query the data warehouse to get insights and answers to project questions.sql (via dimSensorTable)"
+      }
+    ],
+    "execution_order": [
+      [
+        "plsql::Setup. PLSQL code to create the staging table.sql"
+      ],
+      [
+        "plsql::1. Data exploration column analysis using SQL queries and data cleaning.sql",
+        "plsql::2. LOAD PHASE !!!!! Create dimension and fact tables and load them with PLSQL Cursors.sql"
+      ],
+      [
+        "plsql::3. Query the data warehouse to get insights and answers to project questions.sql"
+      ]
+    ]
+  }
+}

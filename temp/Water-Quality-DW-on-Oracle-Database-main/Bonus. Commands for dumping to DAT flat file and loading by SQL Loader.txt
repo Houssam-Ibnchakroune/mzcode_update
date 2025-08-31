@@ -1,0 +1,58 @@
+=================== BEGIN FILE ===========================
+
+##### MAKE SURE THE DRIVE E:\ DOESNT REQUIRE ADMIN PRIVILEGES.
+##### YOU NEED TO CREATE A dump FOLDER IN THE DRIVE E:\ LOCATION.
+##### USE YOUR DATABASE CONNECTION CREDENTIALS E.G. SYS/myPASS1234@orcl
+
+### To dump selected columns from raw table into DAT dumpfile
+
+# save the code below as dump_water_quality.txt in the dump folder in drive E:
+
+set feedback off
+set pagesize 0
+set termout off 
+set linesize 1000
+set heading off
+set echo off
+spool on
+spool E:\dump\dw_water_quality.dat
+select ID1||','||'"'||ID||'"'||','||'"'||id_||'"'||','||'"'||samplesamplingPoint||'"'||','||'"'||samplesamplingPointnotation||'"'||','||'"'||samplesamplingPointlabel||'"'||','||'"'||samplesampleDateTime||'"'||','||'"'||determinandlabel||'"'||','||'"'||determinanddefinition||'"'||','||'"'||determinandnotation||'"'||','||'"'||resultQualifiernotation||'"'||','||'"'||result||'"'||','||'"'||codedResultInterpretationinterpretation||'"'||','||'"'||determinandunitlabel||'"'||','||'"'||samplesampledMaterialTypelabel||'"'||','||'"'||sampleisComplianceSample||'"'||','||'"'||samplepurposelabel||'"'||','||'"'||samplesamplingPointeasting||'"'||','||'"'||samplesamplingPointnorthing||'"'
+From water_quality;
+spool off
+Set feedback on
+set pagesize 24
+set termout on
+set linesize 80
+set heading on
+
+
+# run the following command at the SQLPLUS environment:
+
+SQL>	@ E:\dump\dump_water_quality.txt
+
+-----------------------------------------------------------
+
+### To populate the staging table with data from the DAT dumpfile using SQL*Loader
+
+# save this control file code below as water_quality.ctl in the dump folder in drive E:
+
+Load Data
+infile 'E:\dump\dw_water_quality.dat'
+into table dw_water_quality
+fields terminated by "," optionally enclosed by '"'
+(ID1,ID,id_,samplesamplingPoint,samplesamplingPointnotation,samplesamplingPointlabel,samplesampleDateTime,determinandlabel,determinanddefinition,determinandnotation,resultQualifiernotation,result,codedResultInterpretationinterpretation,determinandunitlabel,samplesampledMaterialTypelabel,sampleisComplianceSample,samplepurposelabel,samplesamplingPointeasting,samplesamplingPointnorthing)
+
+
+# run the following command at the cmd command prompt:
+
+C:\>	sqlldr SYS/myPASS1234@orcl control = E:\dump\water_quality.ctl
+
+
+# check to see that the staging table is loaded:
+
+SQL> SELECT * FROM dw_water_quality;
+
+SQL> SELECT COUNT(*) NUMBER_OF_RECORDS FROM dw_water_quality;
+
+
+======================== END OF FILE ============================
